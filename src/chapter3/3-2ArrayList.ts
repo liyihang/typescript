@@ -1,5 +1,9 @@
-class ArrayListT {
-  public element: Array<Object>
+/**
+ * 泛型any化
+ * 泛型默认值
+ */
+class ArrayListT<T = {}> {
+  public element: Array<T>
   constructor() {
     this.element = []
   }
@@ -9,7 +13,7 @@ class ArrayListT {
    * @param ele 
    * add new ele to element
    */
-  public add(ele: object) {
+  public add(ele: T) {
     this.checkIndex()
     this.element[this.index++] = ele
   }
@@ -26,7 +30,7 @@ class ArrayListT {
    * @param index 
    * @returns one of element with index
    */
-  get(index: number): object {
+  get(index: number): T {
     return this.element[index]
   }
   show() {
@@ -40,7 +44,8 @@ class ArrayListT {
    */
   remove(value: number): number
   remove(value: object): object
-  remove(value: number | object): number | object {
+  // remove(value: number | object): number | object {
+  remove(value: any): any {
     this.element = this.element.filter((e, index) => {
       if (typeof value === 'number') {
         return value !== index
@@ -57,9 +62,15 @@ let stuOne = { name: "zhangsan", age: 23, phone: 1123123 }
 let stuTwo = { name: "zhangsi", age: 26, phone: 2234234 }
 let stuTh = { name: "zhangwu", age: 28, phone: 3345345 }
 
-let arrlist = new ArrayListT()
-arrlist.add(stuOne)
-arrlist.add(stuTwo)
-arrlist.add(stuTh)
-// arrlist.show
-console.log(arrlist.get(1));
+let arrlist = new ArrayListT<string>()
+arrlist.add("hello")
+arrlist.add("world")
+arrlist.add("世界")
+// arrlist.add(stuOne)
+// arrlist.add(stuTwo)
+// arrlist.add(stuTh)
+arrlist.show()
+// console.log(arrlist.get(1));
+console.log("---------");
+arrlist.remove(1)
+console.log(arrlist.show());
