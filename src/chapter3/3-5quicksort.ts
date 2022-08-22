@@ -12,7 +12,7 @@ function quicksort(arr: Array<any>): any {
   }
   return quicksort(left).concat(mid, quicksort(right))
 }
-let arrlist = [1, 3, 4, 2, 5, 8, 7]
+let arrlist: Array<number> = [1, 3, 4, 2, 5, 8, 7]
 let arr = quicksort(arrlist)
 console.log(arr);
 

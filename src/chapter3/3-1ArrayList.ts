@@ -62,3 +62,4 @@ arrlist.add(stuTwo)
 arrlist.add(stuTh)
 // arrlist.show()
 console.log(arrlist.get(1));
+export { }
