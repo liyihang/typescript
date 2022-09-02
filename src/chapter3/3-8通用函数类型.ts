@@ -7,3 +7,7 @@ type commFunc = (...args: any) => any
 interface commFuncInter {
   (...args: any): any
 }
+
+let func: commFuncInter = function (count: number, money: number): void {
+
+} 
